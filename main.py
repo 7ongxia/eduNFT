@@ -1,10 +1,9 @@
 from fastapi import FastAPI, APIRouter
-from fastapi.responses import UJSONResponse
 from mangum import Mangum
 
-from api.order import router as order_router
+from api.ipfs import router as ipfs_router
 
-app = FastAPI(default_response_class=UJSONResponse)
+app = FastAPI()
 api_router = APIRouter(prefix="/api")
 
 
@@ -13,7 +12,7 @@ async def health_check():
     return {"message": "OK"}
 
 
-api_router.include_router(order_router)
+api_router.include_router(ipfs_router)
 app.include_router(api_router)
 
 handler = Mangum(app)

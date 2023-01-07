@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Path
 
-router = APIRouter(prefix="/orders", tags=["Orders"])
+router = APIRouter(prefix="/ipfs", tags=["ipfs"])
 metadata_order = {
     "name": "Order API Version 1",
     "description": "Version 1 ORDER API"
@@ -8,10 +8,10 @@ metadata_order = {
 
 
 @router.get(
-    path="", summary="GET Orders"
+    path="", summary="GET ipfs"
 )
 async def get_orders():
-    return {"message": "Get Orders"}
+    return {"message": "GET orders"}
 
 
 @router.post(

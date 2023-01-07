@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "fastapiproject"
+name = "edunft"
 version = "0.1.0"
 description = ""
 authors = ["7ongxia <7ongxia@gmail.com>"]
