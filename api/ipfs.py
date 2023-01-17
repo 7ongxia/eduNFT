@@ -1,11 +1,11 @@
-from fastapi import APIRouter, Path
+from fastapi import APIRouter, Path, UploadFile
+from api import helper
 
 router = APIRouter(prefix="/ipfs", tags=["ipfs"])
 metadata_order = {
     "name": "Order API Version 1",
     "description": "Version 1 ORDER API"
 }
-
 
 @router.get(
     path="", summary="GET ipfs"
@@ -15,10 +15,11 @@ async def get_orders():
 
 
 @router.post(
-    path="", summary="POST Orders"
+    path="/image", summary="POST Image"
 )
-async def register_order():
-    return {"message": "Register Order"}
+async def upload_metadata(image_url: str):
+    response = helper.uploadImageToIPFS(image_url)
+    return response
 
 
 @router.patch(
